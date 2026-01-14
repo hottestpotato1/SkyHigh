@@ -7,9 +7,11 @@ import aiosqlite as sql
 from datetime import datetime
 import asyncio, random
 import os
+from dotenv import load_dotenv
+load_dotenv()
 
 #variables
-BOT_TOKEN = "MTQ2MDg0NzM1ODY1NjExODgyNw.GjiAkX.dnuDN7faeyjL3HOQpbMntShlBDnTAcjRM2GWa4"
+BOT_TOKEN = os.getenv("BOT_TOKEN")
 bot = commands.Bot(command_prefix="A!", intents = discord.Intents.all())
 CHANNEL_ID = 1460845666434547752
 Message = discord.Message
@@ -72,5 +74,6 @@ async def main():
     await load()
     await bot.start(BOT_TOKEN)
         #print('done')
+
 
 asyncio.run(main())
